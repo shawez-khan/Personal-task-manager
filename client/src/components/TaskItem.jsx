@@ -6,6 +6,7 @@ const TaskItem = ({ task, onUpdateStatus, onDeleteTask, isMutating }) => {
     const date = new Date(dateString);
     if (isNaN(date.getTime())) return null;
     return date.toLocaleDateString('en-US', {
+      timeZone: 'UTC',
       month: 'short',
       day: 'numeric',
       year: 'numeric',
@@ -35,11 +36,9 @@ const TaskItem = ({ task, onUpdateStatus, onDeleteTask, isMutating }) => {
           <h4 className={`task-title ${task.status === 'done' ? 'title-completed' : ''}`}>
             {task.title}
           </h4>
-          <div className="task-badges">
-            <span className={`badge badge-priority badge-priority-${task.priority}`}>
-              {task.priority.toUpperCase()}
-            </span>
-          </div>
+          <span className={`badge badge-priority badge-priority-${task.priority}`}>
+            {task.priority.toUpperCase()}
+          </span>
         </div>
 
         {task.description && (
@@ -58,23 +57,21 @@ const TaskItem = ({ task, onUpdateStatus, onDeleteTask, isMutating }) => {
       </div>
 
       <div className="task-item-controls">
-        <div className="status-selector-wrapper">
-          <label htmlFor={`status-${task._id}`} className="visually-hidden">
-            Status
-          </label>
-          <select
-            id={`status-${task._id}`}
-            className={`status-select status-select-${task.status}`}
-            value={task.status}
-            onChange={handleStatusChange}
-            disabled={isMutating}
-            title="Update task status"
-          >
-            <option value="todo">Todo</option>
-            <option value="in_progress">In Progress</option>
-            <option value="done">Done</option>
-          </select>
-        </div>
+        <label htmlFor={`status-${task._id}`} className="visually-hidden">
+          Status
+        </label>
+        <select
+          id={`status-${task._id}`}
+          className={`status-select status-select-${task.status}`}
+          value={task.status}
+          onChange={handleStatusChange}
+          disabled={isMutating}
+          title="Update task status"
+        >
+          <option value="todo">Todo</option>
+          <option value="in_progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
 
         <button
           type="button"

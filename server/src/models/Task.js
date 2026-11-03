@@ -56,7 +56,7 @@ const TaskSchema = new mongoose.Schema(
 
 // Keep priorityRank in sync with priority before saving
 TaskSchema.pre('save', function (next) {
-  if (this.isModified('priority')) {
+  if (this.isModified('priority') || this.isNew) {
     this.priorityRank = PRIORITY_RANK[this.priority] || 2;
   }
   next();

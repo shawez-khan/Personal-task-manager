@@ -34,12 +34,6 @@ export const tasksApi = {
     return handleResponse(res);
   },
 
-  // Fetch a single task by ID
-  async getTaskById(id) {
-    const res = await fetch(`${BASE_URL}/tasks/${id}`);
-    return handleResponse(res);
-  },
-
   // Create a new task
   async createTask(taskData) {
     const res = await fetch(`${BASE_URL}/tasks`, {

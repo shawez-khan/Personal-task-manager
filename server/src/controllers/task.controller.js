@@ -1,4 +1,4 @@
-const { Task, PRIORITY_RANK } = require('../models/Task');
+const { Task } = require('../models/Task');
 const ApiError = require('../utils/ApiError');
 const asyncHandler = require('../utils/asyncHandler');
 
@@ -14,7 +14,6 @@ const createTask = asyncHandler(async (req, res) => {
     priority: priority || 'medium',
     status: status || 'todo',
     dueDate: dueDate ? new Date(dueDate) : null,
-    priorityRank: PRIORITY_RANK[priority || 'medium'] || 2,
   };
 
   const task = await Task.create(taskData);
@@ -125,24 +124,18 @@ const updateTask = asyncHandler(async (req, res) => {
     }
   });
 
-  // If priority changed, update priorityRank
-  if (updateData.priority) {
-    updateData.priorityRank = PRIORITY_RANK[updateData.priority] || 2;
-  }
+  const task = await Task.findById(req.params.id);
 
-  const updatedTask = await Task.findByIdAndUpdate(
-    req.params.id,
-    { $set: updateData },
-    { new: true, runValidators: true }
-  );
-
-  if (!updatedTask) {
+  if (!task) {
     throw new ApiError(404, 'Task not found');
   }
 
+  task.set(updateData);
+  await task.save();
+
   res.status(200).json({
     success: true,
-    data: updatedTask,
+    data: task,
   });
 });
 
