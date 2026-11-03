@@ -46,11 +46,9 @@ export const useTasks = () => {
     try {
       const response = await tasksApi.createTask(taskData);
       const newTask = response.data;
-      
-      // If the current filter matches or is 'all', include it in the list
-      if (filterStatus === 'all' || filterStatus === newTask.status) {
-        setTasks((prev) => [newTask, ...prev]);
-      }
+
+      // Re-fetch so the list respects the active sort order instead of always prepending
+      await fetchTasks();
       return { success: true, data: newTask };
     } catch (err) {
       setError(err.message || 'Failed to create task');

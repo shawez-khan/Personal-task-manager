@@ -171,6 +171,22 @@ const runTests = async () => {
     });
     assert(emptyPutRes.status === 400, 'PUT /tasks/:id with empty body returns 400');
 
+    // 16a. PUT /tasks/:id (invalid priority) -> 400
+    const badPriorityPutRes = await fetch(`${baseURL}/tasks/${task1Id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ priority: 'extreme' }),
+    });
+    assert(badPriorityPutRes.status === 400, 'PUT /tasks/:id with invalid priority returns 400');
+
+    // 16b. PUT /tasks/:id (blank title) -> 400
+    const blankTitlePutRes = await fetch(`${baseURL}/tasks/${task1Id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: '   ' }),
+    });
+    assert(blankTitlePutRes.status === 400, 'PUT /tasks/:id with blank title returns 400');
+
     // 17. DELETE /tasks/:id
     const deleteRes = await fetch(`${baseURL}/tasks/${task1Id}`, {
       method: 'DELETE',

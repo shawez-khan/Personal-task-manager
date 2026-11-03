@@ -39,7 +39,7 @@ const TaskForm = ({ onAddTask, isCreating }) => {
       description: description.trim(),
       priority,
       status,
-      dueDate: dueDate ? new Date(dueDate).toISOString() : null,
+      dueDate: dueDate || null,
     };
 
     const result = await onAddTask(taskPayload);
