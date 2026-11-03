@@ -23,45 +23,45 @@
 ## 2. Complete PDF Requirement Checklist
 
 ### 2.1 General & Delivery Requirements
-- [ ] Time budget respected: 2.5 – 3.0 hours.
-- [ ] Delivered as a public or private GitHub repository (with collaborator access provided if private).
-- [ ] Clean, incremental Git commit history (no squashed single commits).
-- [ ] `README.md` containing clear, reproducible local execution instructions for both backend and frontend.
-- [ ] `.env.example` provided for backend (and frontend if applicable), with no secrets committed.
-- [ ] `NOTES.md` completed with answers to all 3 designated technical questions (2–3 sentences each).
+- [x] Time budget respected: 2.5 – 3.0 hours.
+- [x] Delivered as a public or private GitHub repository (with collaborator access provided if private).
+- [x] Clean, incremental Git commit history (no squashed single commits).
+- [x] `README.md` containing clear, reproducible local execution instructions for both backend and frontend.
+- [x] `.env.example` provided for backend (and frontend if applicable), with no secrets committed.
+- [x] `NOTES.md` completed with answers to all 3 designated technical questions (2–3 sentences each).
 
 ### 2.2 Data Model Requirements
-- [ ] Entity: `Task`
-- [ ] `title`: String, **required**.
-- [ ] `description`: String, optional.
-- [ ] `priority`: Enum [`low`, `medium`, `high`], default: `medium`.
-- [ ] `status`: Enum [`todo`, `in_progress`, `done`], default: `todo`.
-- [ ] `dueDate`: Date, optional.
-- [ ] `createdAt`: Timestamp, automatically managed.
-- [ ] Sensible optional extensions documented in README (e.g., `updatedAt`).
+- [x] Entity: `Task`
+- [x] `title`: String, **required**.
+- [x] `description`: String, optional.
+- [x] `priority`: Enum [`low`, `medium`, `high`], default: `medium`.
+- [x] `status`: Enum [`todo`, `in_progress`, `done`], default: `todo`.
+- [x] `dueDate`: Date, optional.
+- [x] `createdAt`: Timestamp, automatically managed.
+- [x] Sensible optional extensions documented in README (e.g., `updatedAt`).
 
 ### 2.3 Backend API Requirements
-- [ ] `POST /tasks`: Create a new task.
-- [ ] `GET /tasks`: List all tasks with support for:
+- [x] `POST /tasks`: Create a new task.
+- [x] `GET /tasks`: List all tasks with support for:
   - Filtering by `status` (`todo`, `in_progress`, `done`).
   - Sorting by `dueDate` (ascending/descending).
   - Sorting by `priority` (semantic priority: high > medium > low, or custom specified order).
-- [ ] `GET /tasks/:id`: Fetch a single task by MongoDB ObjectId.
-- [ ] `PUT /tasks/:id`: Update any task field (title, description, status, priority, dueDate).
-- [ ] `DELETE /tasks/:id`: Delete a task by ID.
-- [ ] Input Validation: Reject bad requests with HTTP 400 and a descriptive error message; prevent server crashes.
-- [ ] Error-Handling Middleware: Centralized error handling returning structured JSON without exposing raw stack traces.
-- [ ] Separation of Concerns: Clear separation of routes, controllers, models, and middleware (no monolithic single-file backend).
+- [x] `GET /tasks/:id`: Fetch a single task by MongoDB ObjectId.
+- [x] `PUT /tasks/:id`: Update any task field (title, description, status, priority, dueDate).
+- [x] `DELETE /tasks/:id`: Delete a task by ID.
+- [x] Input Validation: Reject bad requests with HTTP 400 and a descriptive error message; prevent server crashes.
+- [x] Error-Handling Middleware: Centralized error handling returning structured JSON without exposing raw stack traces.
+- [x] Separation of Concerns: Clear separation of routes, controllers, models, and middleware (no monolithic single-file backend).
 
 ### 2.4 Frontend Requirements
-- [ ] Single-Page Application (React).
-- [ ] Display all tasks, grouped or filterable by status (`todo`, `in_progress`, `done`).
-- [ ] Task creation form with validation (prevent empty titles).
-- [ ] Interactive status change (e.g., dropdown selector or toggle) reflecting immediately in the UI.
-- [ ] Task deletion with instant UI update.
-- [ ] Reasonable loading indicators during asynchronous operations.
-- [ ] Graceful API error handling (clear error banners/toasts; UI must not freeze, crash, or fail silently).
-- [ ] Real-time sync: State updates immediately after CRUD actions without requiring a manual browser reload.
+- [x] Single-Page Application (React).
+- [x] Display all tasks, grouped or filterable by status (`todo`, `in_progress`, `done`).
+- [x] Task creation form with validation (prevent empty titles).
+- [x] Interactive status change (e.g., dropdown selector or toggle) reflecting immediately in the UI.
+- [x] Task deletion with instant UI update.
+- [x] Reasonable loading indicators during asynchronous operations.
+- [x] Graceful API error handling (clear error banners/toasts; UI must not freeze, crash, or fail silently).
+- [x] Real-time sync: State updates immediately after CRUD actions without requiring a manual browser reload.
 
 ---
 
@@ -260,10 +260,10 @@ MERN stack/
 ### Phase 1: Environment & Project Scaffolding
 - **Objective:** Establish clean directory structure, root `.gitignore`, and configure package management for both sub-projects.
 - **Tasks:**
-  - [ ] Initialize Git repository (if not already initialized).
-  - [ ] Create root `.gitignore` ignoring `node_modules`, `.env`, build artifacts, and OS files.
-  - [ ] Create `backend/` directory and initialize `package.json` with dependencies (`express`, `mongoose`, `cors`, `dotenv`) and dev dependencies (`nodemon`).
-  - [ ] Create `frontend/` directory using Vite React template (`react`, `react-dom`).
+  - [x] Initialize Git repository (if not already initialized).
+  - [x] Create root `.gitignore` ignoring `node_modules`, `.env`, build artifacts, and OS files.
+  - [x] Create `backend/` directory and initialize `package.json` with dependencies (`express`, `mongoose`, `cors`, `dotenv`) and dev dependencies (`nodemon`).
+  - [x] Create `frontend/` directory using Vite React template (`react`, `react-dom`).
 - **Dependencies:** Node.js, npm.
 - **Expected Output:** Working workspace with clean boundaries between frontend and backend.
 - **Verification:** `npm install` runs successfully in both directories.
@@ -271,9 +271,9 @@ MERN stack/
 ### Phase 2: Backend Core — Database & Data Model
 - **Objective:** Connect to MongoDB securely and define the `Task` Mongoose schema with all required fields and validations.
 - **Tasks:**
-  - [ ] Create `backend/.env.example` with `PORT=5000` and `MONGODB_URI=mongodb://localhost:27017/task_manager`.
-  - [ ] Implement `backend/src/config/db.js` with robust connection handling and error logs.
-  - [ ] Implement `backend/src/models/Task.js` with exact enum constraints, required fields, and timestamps.
+  - [x] Create `backend/.env.example` with `PORT=5000` and `MONGODB_URI=mongodb://localhost:27017/task_manager`.
+  - [x] Implement `backend/src/config/db.js` with robust connection handling and error logs.
+  - [x] Implement `backend/src/models/Task.js` with exact enum constraints, required fields, and timestamps.
 - **Dependencies:** Phase 1.
 - **Expected Output:** Mongoose connects to MongoDB and validates model creation.
 - **Verification:** Run a test script to instantiate a Task and check validation triggers on missing `title` or invalid `priority`.
@@ -281,20 +281,20 @@ MERN stack/
 ### Phase 3: Backend REST API & Controllers
 - **Objective:** Implement all 5 required endpoints with input validation and clean controller separation.
 - **Tasks:**
-  - [ ] Implement `backend/src/middleware/validateTask.js`:
+  - [x] Implement `backend/src/middleware/validateTask.js`:
     - Check required fields (`title` trimmed, not empty).
     - Validate enum values for `status` and `priority`.
     - Validate `id` parameter as valid 24-character hexadecimal ObjectId.
-  - [ ] Implement `backend/src/controllers/taskController.js`:
+  - [x] Implement `backend/src/controllers/taskController.js`:
     - `createTask`: Handle `POST /tasks`, return `201`.
     - `getTasks`: Handle `GET /tasks`, filter by `status`, sort by `dueDate` or `priority` (`high` > `medium` > `low`), return `200`.
     - `getTaskById`: Handle `GET /tasks/:id`, return `200` or `404`.
     - `updateTask`: Handle `PUT /tasks/:id`, return updated document or `404`.
     - `deleteTask`: Handle `DELETE /tasks/:id`, return `200` with deletion confirmation or `404`.
-  - [ ] Implement `backend/src/routes/taskRoutes.js` mapping HTTP verbs to controller methods.
-  - [ ] Implement `backend/src/app.js` registering CORS, JSON parser, routes, and `404` handler.
-  - [ ] Implement `backend/src/middleware/errorHandler.js` preventing stack trace leaks and returning structured error JSON.
-  - [ ] Implement `backend/src/server.js` starting the HTTP listener.
+  - [x] Implement `backend/src/routes/taskRoutes.js` mapping HTTP verbs to controller methods.
+  - [x] Implement `backend/src/app.js` registering CORS, JSON parser, routes, and `404` handler.
+  - [x] Implement `backend/src/middleware/errorHandler.js` preventing stack trace leaks and returning structured error JSON.
+  - [x] Implement `backend/src/server.js` starting the HTTP listener.
 - **Dependencies:** Phase 2.
 - **Expected Output:** Fully functional REST API responding correctly on all 5 endpoints.
 - **Verification:** Test all endpoints via curl/script against happy paths and edge cases (empty title, invalid enum, malformed ID, non-existent ID).
@@ -302,9 +302,9 @@ MERN stack/
 ### Phase 4: Frontend Scaffolding & API Service Layer
 - **Objective:** Configure React frontend, setup API abstraction layer, and define core state management.
 - **Tasks:**
-  - [ ] Create `frontend/.env.example` (`VITE_API_URL=http://localhost:5000/tasks`).
-  - [ ] Implement `frontend/src/services/api.js` with reusable functions: `fetchTasks`, `fetchTaskById`, `createTask`, `updateTask`, `deleteTask`.
-  - [ ] Implement global styles and layout in `App.css` and `index.css`.
+  - [x] Create `frontend/.env.example` (`VITE_API_URL=http://localhost:5000/tasks`).
+  - [x] Implement `frontend/src/services/api.js` with reusable functions: `fetchTasks`, `fetchTaskById`, `createTask`, `updateTask`, `deleteTask`.
+  - [x] Implement global styles and layout in `App.css` and `index.css`.
 - **Dependencies:** Phase 3.
 - **Expected Output:** Frontend can communicate with the backend via the centralized service layer.
 - **Verification:** Invoke `fetchTasks()` from `App.jsx` `useEffect` and verify data appears in console.
@@ -312,11 +312,11 @@ MERN stack/
 ### Phase 5: Frontend UI Components & Core Workflows
 - **Objective:** Build task creation, listing, status filtering, and sorting components.
 - **Tasks:**
-  - [ ] Implement `TaskForm.jsx` with input controls (title, description, priority, status, dueDate) and client-side validation.
-  - [ ] Implement `FilterSortBar.jsx` with status tabs (`all`, `todo`, `in_progress`, `done`) and sort controls (`dueDate`, `priority`).
-  - [ ] Implement `TaskCard.jsx` showing task details, priority badge, due date, status dropdown/toggle, and delete button.
-  - [ ] Implement `TaskList.jsx` rendering task items or empty state.
-  - [ ] Wire all components into `App.jsx` with reactive state synchronization.
+  - [x] Implement `TaskForm.jsx` with input controls (title, description, priority, status, dueDate) and client-side validation.
+  - [x] Implement `FilterSortBar.jsx` with status tabs (`all`, `todo`, `in_progress`, `done`) and sort controls (`dueDate`, `priority`).
+  - [x] Implement `TaskCard.jsx` showing task details, priority badge, due date, status dropdown/toggle, and delete button.
+  - [x] Implement `TaskList.jsx` rendering task items or empty state.
+  - [x] Wire all components into `App.jsx` with reactive state synchronization.
 - **Dependencies:** Phase 4.
 - **Expected Output:** Working UI where users can create, view, filter, and sort tasks.
 - **Verification:** User can submit a new task via the form and immediately see it in the list without reloading.
@@ -324,11 +324,11 @@ MERN stack/
 ### Phase 6: Interactive Status Updates, Deletions & Error Handling
 - **Objective:** Implement immediate UI feedback for status changes and deletions, plus graceful error handling.
 - **Tasks:**
-  - [ ] Implement immediate UI state update when status dropdown is changed on `TaskCard.jsx`.
-  - [ ] Connect status change to `PUT /tasks/:id` via API layer; roll back state if the request fails.
-  - [ ] Implement task deletion with optimistic removal and confirmation alert.
-  - [ ] Implement `Notification.jsx` for displaying API error messages (e.g., server offline, validation error).
-  - [ ] Implement loading spinners/skeleton indicators during initial load and pending mutations.
+  - [x] Implement immediate UI state update when status dropdown is changed on `TaskCard.jsx`.
+  - [x] Connect status change to `PUT /tasks/:id` via API layer; roll back state if the request fails.
+  - [x] Implement task deletion with optimistic removal and confirmation alert.
+  - [x] Implement `Notification.jsx` for displaying API error messages (e.g., server offline, validation error).
+  - [x] Implement loading spinners/skeleton indicators during initial load and pending mutations.
 - **Dependencies:** Phase 5.
 - **Expected Output:** Fluid, responsive user experience that gracefully recovers from network or server errors.
 - **Verification:** Stop the backend server and attempt a status change; verify error alert is displayed and task reverts to previous state without freezing.
@@ -336,12 +336,12 @@ MERN stack/
 ### Phase 7: Edge Case Hardening & Integration Testing
 - **Objective:** Execute rigorous automated and manual tests covering all evaluation criteria and edge cases.
 - **Tasks:**
-  - [ ] Test empty title submission (must return 400 and show user-friendly error).
-  - [ ] Test invalid status and priority payload values.
-  - [ ] Test non-existent ID queries (must return 404).
-  - [ ] Test malformed ObjectId strings (must return 400, never 500).
-  - [ ] Test sorting combinations (`priority` desc/asc, `dueDate` desc/asc).
-  - [ ] Verify that no server crash occurs under any invalid input condition.
+  - [x] Test empty title submission (must return 400 and show user-friendly error).
+  - [x] Test invalid status and priority payload values.
+  - [x] Test non-existent ID queries (must return 404).
+  - [x] Test malformed ObjectId strings (must return 400, never 500).
+  - [x] Test sorting combinations (`priority` desc/asc, `dueDate` desc/asc).
+  - [x] Verify that no server crash occurs under any invalid input condition.
 - **Dependencies:** Phase 6.
 - **Expected Output:** Zero 500 errors, zero unhandled rejections, robust user feedback.
 - **Verification:** Complete all items in Section 9 (Testing & Acceptance Checklist).
@@ -349,8 +349,8 @@ MERN stack/
 ### Phase 8: Documentation (`README.md` & `NOTES.md`)
 - **Objective:** Deliver thorough documentation ensuring easy project setup and answering the three written evaluation questions.
 - **Tasks:**
-  - [ ] Create `NOTES.md` with well-crafted, 2–3 sentence answers for each question.
-  - [ ] Create `README.md` containing:
+  - [x] Create `NOTES.md` with well-crafted, 2–3 sentence answers for each question.
+  - [x] Create `README.md` containing:
     - Project description and architecture summary.
     - Prerequisites (Node.js version, MongoDB).
     - Step-by-step setup and run instructions for backend and frontend.
@@ -364,9 +364,9 @@ MERN stack/
 ### Phase 9: Git Hygiene & Final Submission Review
 - **Objective:** Review Git history for clean incremental progression and prepare the final repository.
 - **Tasks:**
-  - [ ] Verify commit log exhibits clear, logical step-by-step progress.
-  - [ ] Verify no secrets, `.env`, or `node_modules` are tracked by Git.
-  - [ ] Final end-to-end sanity check of both servers and browser interactions.
+  - [x] Verify commit log exhibits clear, logical step-by-step progress.
+  - [x] Verify no secrets, `.env`, or `node_modules` are tracked by Git.
+  - [x] Final end-to-end sanity check of both servers and browser interactions.
 - **Dependencies:** Phase 8.
 - **Expected Output:** Submission-ready GitHub repository.
 
@@ -410,44 +410,44 @@ MERN stack/
 ## 9. Testing and Acceptance Checklist
 
 ### 9.1 Backend Test Cases
-- [ ] **POST /tasks (Valid):** Creating a task with valid title, description, priority, status, and dueDate returns HTTP 201 and the created task object.
-- [ ] **POST /tasks (Minimal):** Creating a task with only a title returns HTTP 201 with default priority (`medium`) and default status (`todo`).
-- [ ] **POST /tasks (Empty Title):** Creating a task with `title: ""` or `title: "   "` returns HTTP 400 with message `"Task title is required"`.
-- [ ] **POST /tasks (Missing Title):** Omitting the title key returns HTTP 400.
-- [ ] **POST /tasks (Invalid Priority):** Setting `priority: "urgent"` returns HTTP 400 with message listing valid options (`low`, `medium`, `high`).
-- [ ] **POST /tasks (Invalid Status):** Setting `status: "archived"` returns HTTP 400 with message listing valid options (`todo`, `in_progress`, `done`).
-- [ ] **GET /tasks (All):** Fetches array of all stored tasks with HTTP 200.
-- [ ] **GET /tasks?status=todo:** Returns only tasks with status `todo`.
-- [ ] **GET /tasks?status=in_progress:** Returns only tasks with status `in_progress`.
-- [ ] **GET /tasks?status=done:** Returns only tasks with status `done`.
-- [ ] **GET /tasks?sortBy=dueDate&order=asc:** Returns tasks ordered by due date ascending.
-- [ ] **GET /tasks?sortBy=priority&order=desc:** Returns tasks ordered by priority: High first, then Medium, then Low.
-- [ ] **GET /tasks/:id (Existing):** Returns the requested task with HTTP 200.
-- [ ] **GET /tasks/:id (Non-Existent Valid ID):** Returns HTTP 404 with message `"Task not found"`.
-- [ ] **GET /tasks/:id (Malformed ID):** Passing an invalid ID like `"1234"` returns HTTP 400 `"Invalid task ID format"` without crashing or throwing unhandled CastError.
-- [ ] **PUT /tasks/:id (Partial Update):** Updating only `status` succeeds with HTTP 200 and leaves other fields intact.
-- [ ] **PUT /tasks/:id (Invalid Data):** Attempting to set `title: ""` or an invalid status returns HTTP 400.
-- [ ] **PUT /tasks/:id (Non-Existent):** Returns HTTP 404.
-- [ ] **DELETE /tasks/:id (Existing):** Deletes task and returns HTTP 200.
-- [ ] **DELETE /tasks/:id (Non-Existent):** Returns HTTP 404.
-- [ ] **Error Middleware:** Verify that errors never leak stack traces to client responses.
+- [x] **POST /tasks (Valid):** Creating a task with valid title, description, priority, status, and dueDate returns HTTP 201 and the created task object.
+- [x] **POST /tasks (Minimal):** Creating a task with only a title returns HTTP 201 with default priority (`medium`) and default status (`todo`).
+- [x] **POST /tasks (Empty Title):** Creating a task with `title: ""` or `title: "   "` returns HTTP 400 with message `"Task title is required"`.
+- [x] **POST /tasks (Missing Title):** Omitting the title key returns HTTP 400.
+- [x] **POST /tasks (Invalid Priority):** Setting `priority: "urgent"` returns HTTP 400 with message listing valid options (`low`, `medium`, `high`).
+- [x] **POST /tasks (Invalid Status):** Setting `status: "archived"` returns HTTP 400 with message listing valid options (`todo`, `in_progress`, `done`).
+- [x] **GET /tasks (All):** Fetches array of all stored tasks with HTTP 200.
+- [x] **GET /tasks?status=todo:** Returns only tasks with status `todo`.
+- [x] **GET /tasks?status=in_progress:** Returns only tasks with status `in_progress`.
+- [x] **GET /tasks?status=done:** Returns only tasks with status `done`.
+- [x] **GET /tasks?sortBy=dueDate&order=asc:** Returns tasks ordered by due date ascending.
+- [x] **GET /tasks?sortBy=priority&order=desc:** Returns tasks ordered by priority: High first, then Medium, then Low.
+- [x] **GET /tasks/:id (Existing):** Returns the requested task with HTTP 200.
+- [x] **GET /tasks/:id (Non-Existent Valid ID):** Returns HTTP 404 with message `"Task not found"`.
+- [x] **GET /tasks/:id (Malformed ID):** Passing an invalid ID like `"1234"` returns HTTP 400 `"Invalid task ID format"` without crashing or throwing unhandled CastError.
+- [x] **PUT /tasks/:id (Partial Update):** Updating only `status` succeeds with HTTP 200 and leaves other fields intact.
+- [x] **PUT /tasks/:id (Invalid Data):** Attempting to set `title: ""` or an invalid status returns HTTP 400.
+- [x] **PUT /tasks/:id (Non-Existent):** Returns HTTP 404.
+- [x] **DELETE /tasks/:id (Existing):** Deletes task and returns HTTP 200.
+- [x] **DELETE /tasks/:id (Non-Existent):** Returns HTTP 404.
+- [x] **Error Middleware:** Verify that errors never leak stack traces to client responses.
 
 ### 9.2 Frontend Test Cases
-- [ ] **Initial Render:** Displays loading state while fetching tasks, then displays tasks correctly.
-- [ ] **Empty State:** If no tasks exist, a clear empty state message is shown.
-- [ ] **Create Task:** Submitting the form creates the task and appends it to the list immediately without manual page refresh.
-- [ ] **Form Validation:** Submitting an empty title shows an inline validation error and prevents an invalid API call.
-- [ ] **Status Change:** Selecting a new status in the dropdown updates the card badge immediately and persists to backend.
-- [ ] **Delete Task:** Clicking delete removes the task from the list immediately.
-- [ ] **Filter by Status:** Clicking "In Progress" shows only in-progress tasks; clicking "All" shows all tasks.
-- [ ] **Sort Tasks:** Changing sort to "Priority" orders tasks logically.
-- [ ] **Error Handling:** When backend is stopped, actions display a visible error message without crashing the UI or leaving it locked.
-- [ ] **Recovery:** After an error, user can retry actions or dismiss the error banner.
+- [x] **Initial Render:** Displays loading state while fetching tasks, then displays tasks correctly.
+- [x] **Empty State:** If no tasks exist, a clear empty state message is shown.
+- [x] **Create Task:** Submitting the form creates the task and appends it to the list immediately without manual page refresh.
+- [x] **Form Validation:** Submitting an empty title shows an inline validation error and prevents an invalid API call.
+- [x] **Status Change:** Selecting a new status in the dropdown updates the card badge immediately and persists to backend.
+- [x] **Delete Task:** Clicking delete removes the task from the list immediately.
+- [x] **Filter by Status:** Clicking "In Progress" shows only in-progress tasks; clicking "All" shows all tasks.
+- [x] **Sort Tasks:** Changing sort to "Priority" orders tasks logically.
+- [x] **Error Handling:** When backend is stopped, actions display a visible error message without crashing the UI or leaving it locked.
+- [x] **Recovery:** After an error, user can retry actions or dismiss the error banner.
 
 ### 9.3 Integration & Synchronization Tests
-- [ ] Full end-to-end lifecycle: Create -> List -> Filter -> Update Status -> Delete verified against a live MongoDB database.
-- [ ] No manual browser refresh required for any operation.
-- [ ] Browser console is free of uncaught errors or React key warnings.
+- [x] Full end-to-end lifecycle: Create -> List -> Filter -> Update Status -> Delete verified against a live MongoDB database.
+- [x] No manual browser refresh required for any operation.
+- [x] Browser console is free of uncaught errors or React key warnings.
 
 ---
 
@@ -504,16 +504,16 @@ A clean, incremental commit history demonstrating deliberate senior-level engine
 
 ## 13. Final Submission Checklist
 
-- [ ] `backend/` runs locally with `npm run dev` or `npm start`.
-- [ ] `frontend/` runs locally with `npm run dev`.
-- [ ] MongoDB connection succeeds gracefully with clear logs.
-- [ ] `backend/.env.example` and `frontend/.env.example` are committed; no secret `.env` files are tracked in Git.
-- [ ] `NOTES.md` answers all 3 questions within the 2–3 sentence guideline.
-- [ ] `README.md` provides clear, copy-pasteable setup and execution commands.
-- [ ] Git log contains 8–11 meaningful, logical commits without single-commit squashes.
-- [ ] All 5 REST endpoints verified against valid requests, malformed IDs, invalid enums, and empty titles.
-- [ ] Frontend single-page app verifies immediate updates, status changes, deletions, loading states, and error alerts.
-- [ ] Repository is pushed to GitHub with collaborator access granted (if private).
+- [x] `server/` (backend) runs locally with `npm run dev` or `npm start`.
+- [x] `client/` (frontend) runs locally with `npm run dev`.
+- [x] MongoDB connection succeeds gracefully with clear logs.
+- [x] `server/.env.example` and `client/.env.example` are committed; no secret `.env` files are tracked in Git.
+- [x] `NOTES.md` answers all 3 questions within the 2–3 sentence guideline.
+- [x] `README.md` provides clear, copy-pasteable setup and execution commands.
+- [x] Git log contains 8–11 meaningful, logical commits without single-commit squashes.
+- [x] All 5 REST endpoints verified against valid requests, malformed IDs, invalid enums, and empty titles.
+- [x] Frontend single-page app verifies immediate updates, status changes, deletions, loading states, and error alerts.
+- [x] Repository is pushed to GitHub with collaborator access granted (if private).
 
 ---
 
