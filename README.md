@@ -104,10 +104,8 @@ MERN stack/
 │   ├── package.json
 │   └── vite.config.js             # Vite configuration
 ├── NOTES.md                       # Required 3 architectural questions answered
-├── PRD.md                         # Product requirements document
-├── plan.md                        # Master implementation plan
-├── rules.md                       # Coding constraints and standards
-└── README.md                      # Complete setup and developer documentation
+├── README.md                      # Complete setup and developer documentation
+└── .gitignore                     # Git ignore rules for node_modules, .env, dist
 ```
 
 ---

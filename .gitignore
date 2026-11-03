@@ -26,3 +26,9 @@ logs/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Assessment brief & internal planning
+*.pdf
+plan.md
+PRD.md
+rules.md
